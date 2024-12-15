@@ -29,11 +29,11 @@ export default function SelectInput({
 
   return (
     <View>
-      <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
+      {/* <Text style={[styles.title, { color: colors.text }]}>{title}</Text> */}
       <RNPickerSelect
         onValueChange={onValueChange}
         items={items}
-        placeholder={{ label: placeholder, value: value }}
+        placeholder={{ label: value }}
         style={{
           inputIOS: {
             ...styles.input,
@@ -44,6 +44,7 @@ export default function SelectInput({
             ...styles.input,
             backgroundColor: color.lightGray,
             borderColor: colors.border,
+            height: windowHeight(39),
           },
         }}
         value={value}
