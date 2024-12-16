@@ -5,6 +5,6 @@ import { Redirect } from "expo-router";
 export default function index() {
   const [isLoggenIng, setIsLoggenIng] = useState(false);
   return (
-    <Redirect href={!isLoggenIng ? "/(routes)/onboarding" : "/(tabs)/home"} />
+    <Redirect href={!isLoggenIng ? "/(routes)/registration" : "/(tabs)/home"} />
   );
 }
