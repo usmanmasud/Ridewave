@@ -1,7 +1,7 @@
 import { View, Text, Image } from "react-native";
 import React, { useState } from "react";
 import AuthContainer from "@/utils/container/auth-container";
-import { windowHeight } from "@/themes/app.constant";
+import { windowHeight, windowWidth } from "@/themes/app.constant";
 import styles from "./styles";
 import Images from "@/utils/images";
 import SignInText from "@/components/login/signin.text";
@@ -25,16 +25,22 @@ export default function LoginScreen() {
     } else {
       // console.log(phoneNumber, countryCode);
       const phoneNumber = `$+{countryCode}${phone_number}`;
-
       await axios
         .post(`${process.env.EXPO_PUBLIC_SERVER_URI}/registration`, {
           phone_number: phoneNumber,
         })
         .then((res) => {
-          console.log(res);
+          router.push({
+            pathname: "/(routes)/otp-verification",
+            params: { phoneNumber },
+          });
         })
         .catch((e) => {
-          console.log(e);
+          // console.log(e);
+          toast.show("Something went wrong", {
+            type: "danger",
+            placement: "bottom",
+          });
         });
     }
   };
@@ -49,13 +55,20 @@ export default function LoginScreen() {
               <SignInText />
               <View style={[external.mt_25, external.Pb_10]}>
                 <PhoneNumberInput
+                  width={windowWidth(326)}
                   phone_number={phone_number}
                   setPhoneNumber={setPhoneNumber}
                   countryCode={countryCode}
                   setCountryCode={setCountryCode}
                 />
                 <View style={[external.mt_25, external.Pb_15]}>
-                  <Button title="Get Otp" onPress={() => handleSubmit()} />
+                  <Button
+                    title="Get Otp"
+                    onPress={
+                      () => router.push("/otp-verification")
+                      // () => handleSubmit()
+                    }
+                  />
                 </View>
               </View>
             </View>
