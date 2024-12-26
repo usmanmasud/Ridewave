@@ -1,4 +1,4 @@
-import * as SplashScreen from "expo-splash-screen";
+// import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import "react-native-reanimated";
 import { Stack } from "expo-router";
@@ -22,7 +22,7 @@ export default function RootLayout() {
   useEffect(() => {
     LogBox.ignoreAllLogs(true);
     if (loaded || error) {
-      SplashScreen.hideAsync();
+      // SplashScreen.hideAsync();
     }
   }, [loaded, error]);
 
