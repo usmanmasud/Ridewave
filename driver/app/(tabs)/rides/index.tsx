@@ -12,7 +12,7 @@ export default function Rides() {
   const getRecentRides = async () => {
     const accessToken = await AsyncStorage.getItem("accessToken");
     const res = await axios.get(
-      `${process.env.EXPO_PUBLIC_SERVER_URI}/driver/get-rides`,
+      `http://192.168.70.181:8000/api/v1/driver/get-rides`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,

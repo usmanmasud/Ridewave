@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "name": "RideWave",
     "slug": "RideWave",
     "version": "1.0.0",

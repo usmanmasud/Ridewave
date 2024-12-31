@@ -49,7 +49,7 @@ export default function RideDetailsScreen() {
     const accessToken = await AsyncStorage.getItem("accessToken");
     await axios
       .put(
-        `${process.env.EXPO_PUBLIC_SERVER_URI}/driver/update-ride-status`,
+        `http://192.168.70.181:8000/api/v1/driver/update-ride-status`,
         {
           rideStatus: orderStatus === "Ongoing" ? "Completed" : "Ongoing",
           rideId: orderData?.rideData.id,

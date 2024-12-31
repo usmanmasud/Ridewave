@@ -14,14 +14,11 @@ export default function HomeScreen() {
 
   const getRecentRides = async () => {
     const accessToken = await AsyncStorage.getItem("accessToken");
-    const res = await axios.get(
-      `${process.env.EXPO_PUBLIC_SERVER_URI}/get-rides`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
+    const res = await axios.get(`$192.168.246.181/get-rides`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
     setrecentRides(res.data.rides);
   };
 

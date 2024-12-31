@@ -15,8 +15,10 @@ import axios from "axios";
 export default function LoginScreen() {
   const [phone_number, setphone_number] = useState("");
   const [loading, setloading] = useState(false);
-  const [countryCode, setCountryCode] = useState("+880");
+  const [countryCode, setCountryCode] = useState("+234");
   const toast = useToast();
+
+  console.log(countryCode);
 
   const handleSubmit = async () => {
     if (phone_number === "" || countryCode === "") {
@@ -27,7 +29,7 @@ export default function LoginScreen() {
       setloading(true);
       const phoneNumber = `${countryCode}${phone_number}`;
       await axios
-        .post(`${process.env.EXPO_PUBLIC_SERVER_URI}/registration`, {
+        .post(`http:/192.168.96.181:8000/api/v1/registration`, {
           phone_number: phoneNumber,
         })
         .then((res) => {

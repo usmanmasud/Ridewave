@@ -11,7 +11,7 @@ import { router } from "expo-router";
 import PhoneNumberInput from "@/components/login/phone-number.input";
 import { Toast } from "react-native-toast-notifications";
 import axios from "axios";
- 
+
 export default function LoginScreen() {
   const [phone_number, setphone_number] = useState("");
   const [loading, setloading] = useState(false);
@@ -26,7 +26,7 @@ export default function LoginScreen() {
       setloading(true);
       const phoneNumber = `${countryCode}${phone_number}`;
       await axios
-        .post(`${process.env.EXPO_PUBLIC_SERVER_URI}/driver/send-otp`, {
+        .post(`http://192.168.70.181:8000/api/v1/driver/send-otp`, {
           phone_number: phoneNumber,
         })
         .then((res) => {

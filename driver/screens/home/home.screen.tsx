@@ -52,7 +52,7 @@ export default function HomeScreen() {
   const [currentLocation, setCurrentLocation] = useState<any>(null);
   const [lastLocation, setLastLocation] = useState<any>(null);
   const [recentRides, setrecentRides] = useState([]);
-  const ws = new WebSocket("ws://192.168.1.2:8080");
+  const ws = new WebSocket("ws://192.168.70.181:8080");
 
   const { colors } = useTheme();
 
@@ -223,7 +223,7 @@ export default function HomeScreen() {
   const sendLocationUpdate = async (location: any) => {
     const accessToken = await AsyncStorage.getItem("accessToken");
     await axios
-      .get(`${process.env.EXPO_PUBLIC_SERVER_URI}/driver/me`, {
+      .get(`http://192.168.70.181:8000/api/v1/driver/me`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -281,7 +281,7 @@ export default function HomeScreen() {
   const getRecentRides = async () => {
     const accessToken = await AsyncStorage.getItem("accessToken");
     const res = await axios.get(
-      `${process.env.EXPO_PUBLIC_SERVER_URI}/driver/get-rides`,
+      `http://192.168.70.181:8000/api/v1/driver/get-rides`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -304,7 +304,7 @@ export default function HomeScreen() {
       setloading(true);
       const accessToken = await AsyncStorage.getItem("accessToken");
       const changeStatus = await axios.put(
-        `${process.env.EXPO_PUBLIC_SERVER_URI}/driver/update-status`,
+        `http://192.168.70.181:8000/api/v1/driver/update-status`,
         {
           status: !isOn ? "active" : "inactive",
         },

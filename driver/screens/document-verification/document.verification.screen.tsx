@@ -47,8 +47,8 @@ export default function DocumentVerificationScreen() {
     };
 
     await axios
-      .post(`${process.env.EXPO_PUBLIC_SERVER_URI}/driver/send-otp`, {
-        phone_number: `+${driverData.phone_number}`,
+      .post(`http://192.168.70.181:8000/api/v1/driver/send-otp`, {
+        phone_number: `+2349136335556`,
       })
       .then((res) => {
         router.push({

@@ -3,7 +3,7 @@ import { Redirect } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function index() {
-  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(true);
   const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {

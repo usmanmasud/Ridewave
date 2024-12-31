@@ -29,7 +29,7 @@ export default function OtpVerificationScreen() {
       setLoader(true);
       const otpNumbers = `${otp}`;
       await axios
-        .post(`${process.env.EXPO_PUBLIC_SERVER_URI}/verify-otp`, {
+        .post(`http:/192.168.96.181:8000/api/v1/verify-otp`, {
           phone_number: phoneNumber,
           otp: otpNumbers,
         })
@@ -68,7 +68,7 @@ export default function OtpVerificationScreen() {
           />
           <OTPTextInput
             handleTextChange={(code) => setOtp(code)}
-            inputCount={4}
+            inputCount={6}
             textInputStyle={style.otpTextInput}
             tintColor={color.subtitle}
             autoFocus={false}

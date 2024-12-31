@@ -23,7 +23,7 @@ export default function EmailVerificationScreen() {
     setLoader(true);
     const otpNumbers = `${otp}`;
     await axios
-      .post(`${process.env.EXPO_PUBLIC_SERVER_URI}/driver/registration-driver`, {
+      .post(`http://192.168.70.181:8000/api/v1/driver/registration-driver`, {
         token: driver.token,
         otp: otpNumbers,
       })

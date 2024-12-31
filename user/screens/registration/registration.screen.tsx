@@ -28,16 +28,15 @@ export default function RegistrationScreen() {
       [key]: value,
     }));
   };
-  
 
   const handleSubmit = async () => {
     setLoading(true);
     await axios
-      .post(`${process.env.EXPO_PUBLIC_SERVER_URI}/email-otp-request`, {
+      .post(`192.168.246.181/email-otp-request`, {
         email: formData.email,
         name: formData.name,
         userId: parsedUser.id,
-      }) 
+      })
       .then((res) => {
         setLoading(false);
         const userData: any = {
