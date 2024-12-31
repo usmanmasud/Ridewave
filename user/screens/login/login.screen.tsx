@@ -72,7 +72,8 @@ export default function LoginScreen() {
                 <View style={[external.mt_25, external.Pb_15]}>
                   <Button
                     title="Get Otp"
-                    onPress={() => handleSubmit()}
+                    // onPress={() => handleSubmit()}
+                    onPress={() => router.push("/(tabs)/home")}
                     disabled={loading}
                   />
                 </View>

@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Redirect } from "expo-router";
 import { useEffect, useState } from "react";
+import "react-native-get-random-values";
 
 export default function Index() {
   const [isLoggedIn, setisLoggedIn] = useState(false);
@@ -16,7 +17,10 @@ export default function Index() {
           setisLoggedIn(!!accessToken);
         }
       } catch (error) {
-        console.log("Failed to retrieve access token from async storage", error);
+        console.log(
+          "Failed to retrieve access token from async storage",
+          error
+        );
       } finally {
         if (isMounted) {
           setisLoading(false);
@@ -32,7 +36,7 @@ export default function Index() {
   }, []);
 
   if (isLoading) {
-    return null; 
+    return null;
   }
 
   return (
